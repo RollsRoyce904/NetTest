@@ -1,19 +1,21 @@
 /*
- * Author: Royce Rhoden
+*	Project 1:		Network Management Application using the Sockets API
+*
+*
+*	Comments:		This is the server side
+*
+*	Group Members: Tejas Mistry, Ashley Darling, Charlotte Morrison, Royce Rhoden
+*
  */
-package nettest;
 
 import java.util.*;
 import java.net.*;
 import java.io.*;
 
-/**
- *
- * @author slip4
- */
 public class Sockets_Server {
 
     public static void main(String[] args) throws IOException {
+
         //creates a new server socket
         ServerSocket serverSocket = null;
         try {
@@ -30,7 +32,7 @@ public class Sockets_Server {
         try {
             System.out.println("\nWaiting for connection from client\n");
             clientSocket = serverSocket.accept();
-            System.out.println("Succesfully connected to client\n");
+            System.out.println("Connected to client\n");
             System.out.println("Waiting on client request\n");
         }//try
         catch (IOException someException) {
@@ -59,6 +61,7 @@ public class Sockets_Server {
 
             //calls different methods depending on what the user chose
             switch (userChoice) {
+
                 //Host current date and time
                 case 1:
 
@@ -182,7 +185,8 @@ public class Sockets_Server {
                     out.println(output);
 
                     break;
-            }//switch				
+            }//switch
+
         } while (userChoice != 7);
 
         //prints to the server side that the connection is closed
@@ -193,6 +197,7 @@ public class Sockets_Server {
         in.close();
         clientSocket.close();
         serverSocket.close();
+
     }//main
 
 }//Sockets_Server
